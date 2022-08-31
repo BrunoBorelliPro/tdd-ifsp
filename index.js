@@ -1,31 +1,43 @@
-function somar(a,b){
-    validarParametros(a,b)
-    return a + b
+const {somar, subtracao, divisao, multiplicacao} = require("./modulo-calculadora")
+const readline = require('readline');
+
+const metodos = {
+    "+": somar,
+    '-': subtracao,
+    '*':multiplicacao,
+    '/':divisao
 }
 
-function subtracao(a,b){
-    validarParametros(a,b)
-    return a-b
-}
-
-function divisao(a,b){
-    validarParametros(a,b)
-    let resultado = a/b
-    if(resultado === Infinity || resultado === -Infinity){
-       throw new Error("Erro: divisão por zero.")
-    }
-    return resultado
+function createRL(){
+    return readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+      });
 }
 
 
+async function calculadora(){
+    let n1
+    let n2
+    let operacao
+    rl = createRL()
+    rl.question("Digite o primeiro numero:",(n1)=>{
+        console.log(n1)
+        this.n1 = n1
+        rl.close()
+    })
+    rl = createRL()
+    rl.question("Digite o segundo numero:",(n2)=>{
+        console.log(n2)
+        this.n2 = n2
+        rl.close()
 
-function validarParametros(a,b){
-    if(typeof(a)!='number' || typeof(b)!='number'){
-        throw new Error("Erro: formato de dados inválidos")
-    }
+    })
+    // rl.question("Digite a operação:",(operacao)=>{
+    //     this.operacao = operacao
+    // })
+
+    // metodos[operacao](n1, n2)
 }
-module.exports = {
-    somar,
-    subtracao,
-    divisao
-}
+
+calculadora()

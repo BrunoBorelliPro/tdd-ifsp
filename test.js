@@ -1,10 +1,11 @@
-const {somar, subtracao, divisao} = require("./index")
+const {somar, subtracao, divisao, multiplicacao} = require("./modulo-calculadora")
 
 describe('Parâmetros de entrada', () => {
     test("Deve-se lançar um erro caso os parâmetros de entrada não sejam números",()=>{
         expect(()=>somar("a",1)).toThrow("Erro: formato de dados inválidos");
         expect(()=>subtracao(1,"b")).toThrow("Erro: formato de dados inválidos");
         expect(()=>divisao("a","b")).toThrow("Erro: formato de dados inválidos");
+        expect(()=>multiplicacao()).toThrow("Erro: formato de dados inválidos");
 
     })
 })
@@ -28,6 +29,16 @@ describe('Função de subtração', () => {
 
     test("Subtração 10 - 15 deve ser igual a -5",()=>{
         expect(subtracao(10,15)).toBe(-5);
+    })
+})
+
+describe('Função de multiplicação', () => {
+    test("Multiplicação 2 * 2 deve ser igual a 4",()=>{
+        expect(multiplicacao(2,2)).toBe(4);
+    })
+
+    test("Multiplicação 5 * 2 deve ser igual a 10",()=>{
+        expect(multiplicacao(5,2)).toBe(10);
     })
 })
 
