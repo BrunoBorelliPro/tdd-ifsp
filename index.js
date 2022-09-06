@@ -4,40 +4,23 @@ const readline = require('readline');
 const metodos = {
     "+": somar,
     '-': subtracao,
-    '*':multiplicacao,
-    '/':divisao
+    '*': multiplicacao,
+    '/': divisao
 }
+var rl = readline.createInterface({
+    input : process.stdin,
+    output : process.stdout 
+ });
 
-function createRL(){
-    return readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-      });
+function makeQuestion(msg) {
+    return new Promise(resolve => rl.question(msg, res => resolve(res)))
 }
-
-
 async function calculadora(){
-    let n1
-    let n2
-    let operacao
-    rl = createRL()
-    rl.question("Digite o primeiro numero:",(n1)=>{
-        console.log(n1)
-        this.n1 = n1
-        rl.close()
-    })
-    rl = createRL()
-    rl.question("Digite o segundo numero:",(n2)=>{
-        console.log(n2)
-        this.n2 = n2
-        rl.close()
-
-    })
-    // rl.question("Digite a operação:",(operacao)=>{
-    //     this.operacao = operacao
-    // })
-
-    // metodos[operacao](n1, n2)
+    let n1 = parseFloat(await makeQuestion("Digite o primeiro número: "))
+    let operacao = await makeQuestion("Digite a operação: [+, -, *, /]")
+    let n2 = parseFloat( await makeQuestion("Digite o segundo número: "))
+    rl.close()
+    console.log(metodos[operacao](n1, n2))
 }
 
 calculadora()
