@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - TDD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+            <div class="calculadora">
+                <h1>Calculadora - TDD</h1>
+                <div class="conta">
+                    <input class="elemento" type="number" id="num1" required>    
+                        <select class="elemento" name="operacao" id="operacao">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">*</option>
+                            <option value="/">/</option>
+                        </select>
+                    <input class="elemento" type="number" id="num2" required>
+                    <input class="elemento" type="text" value="=" disabled>
+                    <input class="elemento" type="text" id="resultado" disabled>
+                </div>
+                <input class="btn" type="submit" id="calcular" value="Calcular">
+            </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100vh;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.calculadora{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.conta{
+    display: flex;
+    flex-direction: row;
+}
+
+.elemento{
+    height: 20vh;
+    width: 20vw;
+    font-size: 50px;
+    text-align: center;
+}
+
+
+
+.btn{
+    font-size: 24px;
+    margin: 10px;
+    height: 10vh;
+    width: 20vw;
+}
